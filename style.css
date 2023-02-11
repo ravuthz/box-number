@@ -1,0 +1,66 @@
+:root {
+  --box-height: 60px;
+  --box-width: 60px;
+  --box-size: 7px;
+  --box-bg: #fff;
+  --box-fg: #000;
+}
+
+.square {
+  height: var(--box-height);
+  width: var(--box-height);
+  position: relative;
+}
+
+.box {
+  width: inherit;
+  height: inherit;
+  background-color: var(--box-bg)
+}
+
+.square[data-value='1'] .box {
+  border-left: var(--box-size) solid var(--box-fg);
+  width: calc(100% - var(--box-size));
+}
+
+.square[data-value='2'] .box {
+  border-left: var(--box-size) solid var(--box-fg);
+  border-bottom: var(--box-size) solid var(--box-fg);
+  width: calc(100% - var(--box-size));
+  height: calc(100% - var(--box-size));
+}
+
+.square[data-value='3'] .box {
+  border-left: var(--box-size) solid var(--box-fg);
+  border-bottom: var(--box-size) solid var(--box-fg);
+  border-right: var(--box-size) solid var(--box-fg);
+  width: calc(100% - (var(--box-size)*2));
+  height: calc(100% - var(--box-size));
+}
+
+.square[data-value='4'] .box,
+.square[data-value='5'] .box {
+  border: var(--box-size) solid var(--box-fg);
+  width: calc(100% - (var(--box-size)*2));
+  height: calc(100% - (var(--box-size)*2));
+}
+
+.square[data-value='5'] .box:after {
+  background-color: var(--box-fg);
+  transform: rotate(45deg);
+  content: '';
+  position: absolute;
+  top: 45%;
+  left: -9%;
+  height: var(--box-size);
+  width: 120%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row .square {
+  margin: 10px
+}
