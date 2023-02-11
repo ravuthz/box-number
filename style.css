@@ -1,36 +1,41 @@
 :root {
-  --box-height: 60px;
-  --box-width: 60px;
-  --box-size: 7px;
+  --box-height: 40px;
+  --box-width: 40px;
+  --box-size: 5px;
   --box-bg: #fff;
   --box-fg: #000;
 }
 
-.square {
+.square-1,
+.square-2,
+.square-3,
+.square-4,
+.square-5 {
   height: var(--box-height);
   width: var(--box-height);
   position: relative;
 }
 
 .box {
+  position: relative;
   width: inherit;
   height: inherit;
   background-color: var(--box-bg)
 }
 
-.square[data-value='1'] .box {
+.square-1 .box {
   border-left: var(--box-size) solid var(--box-fg);
   width: calc(100% - var(--box-size));
 }
 
-.square[data-value='2'] .box {
+.square-2 .box {
   border-left: var(--box-size) solid var(--box-fg);
   border-bottom: var(--box-size) solid var(--box-fg);
   width: calc(100% - var(--box-size));
   height: calc(100% - var(--box-size));
 }
 
-.square[data-value='3'] .box {
+.square-3 .box {
   border-left: var(--box-size) solid var(--box-fg);
   border-bottom: var(--box-size) solid var(--box-fg);
   border-right: var(--box-size) solid var(--box-fg);
@@ -38,22 +43,22 @@
   height: calc(100% - var(--box-size));
 }
 
-.square[data-value='4'] .box,
-.square[data-value='5'] .box {
+.square-4 .box,
+.square-5 .box {
   border: var(--box-size) solid var(--box-fg);
   width: calc(100% - (var(--box-size)*2));
   height: calc(100% - (var(--box-size)*2));
 }
 
-.square[data-value='5'] .box:after {
+.square-5 .box:after {
   background-color: var(--box-fg);
   transform: rotate(45deg);
   content: '';
   position: absolute;
-  top: 45%;
-  left: -9%;
+  top: 40%;
+  left: -25%;
   height: var(--box-size);
-  width: 120%;
+  width: 150%;
 }
 
 .row {
@@ -61,6 +66,6 @@
   flex-wrap: wrap;
 }
 
-.row .square {
-  margin: 10px
+.row span {
+  margin: 5px
 }
